@@ -15,7 +15,7 @@ class TicTacToe3DAIEasy extends TicTacToe {
 
   /// Fill the board with the given value and set the AI player's next move.
   /// Also check if the game is over and announce the winner.
-  void fillSlot(MatrixIndex index) {
+  void makeMove(MatrixIndex index) {
     if (_winner != null) {
       throw Exception('Game is over');
     }
