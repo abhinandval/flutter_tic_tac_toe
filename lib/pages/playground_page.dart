@@ -16,6 +16,24 @@ class PlaygroundPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Tic-Tac-Toe'),
           centerTitle: true,
+          actions: [
+            BlocBuilder<TicTacToeCubit, TicTacToeState>(
+              builder: (bCtx, state) {
+                return state.maybeWhen(
+                  initial: () => const SizedBox(),
+                  orElse: () => TextButton(
+                    onPressed: () {
+                      bCtx.read<TicTacToeCubit>().restart();
+                    },
+                    child: const Text(
+                      'New Game',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                );
+              },
+            )
+          ],
         ),
         body: Center(
           child: Padding(
