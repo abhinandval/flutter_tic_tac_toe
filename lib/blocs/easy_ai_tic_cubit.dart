@@ -10,10 +10,15 @@ part 'easy_ai_tic_cubit.freezed.dart';
 part 'easy_ai_tic_state.dart';
 
 class EasyAiTicCubit extends Cubit<EasyAiTicState> {
-  EasyAiTicCubit(this.ticGame) : super(EasyAiTicState.progress(ticGame.matrix));
+  EasyAiTicCubit() : super(const EasyAiTicState.initial());
 
-  final TicTacToe3DAIEasy ticGame;
+  late TicTacToe3DAIEasy ticGame;
   Player? _winner;
+
+  void init(Player firstPlayer) {
+    ticGame = TicTacToe3DAIEasy(firstPlayer);
+    emit(EasyAiTicState.progress(ticGame.matrix));
+  }
 
   void makeMove(MatrixIndex position) async {
     try {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/easy_ai_tic_cubit.dart';
-import '../models/ai_player/tic_tac_toe_3d_ai_easy.dart';
 import '../models/matrix_index.dart';
 import '../models/tic_tac_toe.dart';
 
@@ -12,7 +11,7 @@ class PlaygroundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => EasyAiTicCubit(TicTacToe3DAIEasy(Player.O)),
+      create: (context) => EasyAiTicCubit(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Tic-Tac-Toe'),
@@ -33,6 +32,12 @@ class PlaygroundPage extends StatelessWidget {
               },
               builder: (bCtx, state) {
                 return state.when(
+                  initial: () => ElevatedButton(
+                    onPressed: () {
+                      bCtx.read<EasyAiTicCubit>().init(Player.X);
+                    },
+                    child: const Text('Start Game'),
+                  ),
                   error: (matrix, isCompleted, error) => _buildMatrixGrid(
                     matrix,
                     (index) {
@@ -56,6 +61,13 @@ class PlaygroundPage extends StatelessWidget {
                       Text(
                         'Game Over !\nPlayer ${winner?.symbol} won\t🎉',
                         textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 8 * 2),
+                      ElevatedButton(
+                        onPressed: () {
+                          bCtx.read<EasyAiTicCubit>().init(Player.X);
+                        },
+                        child: const Text('New Game'),
                       ),
                     ],
                   ),
