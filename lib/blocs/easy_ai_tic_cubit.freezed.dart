@@ -20,39 +20,57 @@ mixin _$EasyAiTicState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<List<Player?>> gameMatrix) progress,
-    required TResult Function(List<List<Player?>> gameMatrix, Player winner)
+    required TResult Function(List<List<Player?>> gameMatrix) loading,
+    required TResult Function(List<List<Player?>> gameMatrix, Player? winner)
         gameOver,
+    required TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)
+        error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(List<List<Player?>> gameMatrix)? progress,
-    TResult Function(List<List<Player?>> gameMatrix, Player winner)? gameOver,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<List<Player?>> gameMatrix)? progress,
-    TResult Function(List<List<Player?>> gameMatrix, Player winner)? gameOver,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Progress value) progress,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -165,8 +183,12 @@ class _$_Progress implements _Progress {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<List<Player?>> gameMatrix) progress,
-    required TResult Function(List<List<Player?>> gameMatrix, Player winner)
+    required TResult Function(List<List<Player?>> gameMatrix) loading,
+    required TResult Function(List<List<Player?>> gameMatrix, Player? winner)
         gameOver,
+    required TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)
+        error,
   }) {
     return progress(gameMatrix);
   }
@@ -175,7 +197,11 @@ class _$_Progress implements _Progress {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(List<List<Player?>> gameMatrix)? progress,
-    TResult Function(List<List<Player?>> gameMatrix, Player winner)? gameOver,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
   }) {
     return progress?.call(gameMatrix);
   }
@@ -184,7 +210,11 @@ class _$_Progress implements _Progress {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<List<Player?>> gameMatrix)? progress,
-    TResult Function(List<List<Player?>> gameMatrix, Player winner)? gameOver,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
     required TResult orElse(),
   }) {
     if (progress != null) {
@@ -197,7 +227,9 @@ class _$_Progress implements _Progress {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Progress value) progress,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_Error value) error,
   }) {
     return progress(this);
   }
@@ -206,7 +238,9 @@ class _$_Progress implements _Progress {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
   }) {
     return progress?.call(this);
   }
@@ -215,7 +249,9 @@ class _$_Progress implements _Progress {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (progress != null) {
@@ -237,13 +273,174 @@ abstract class _Progress implements EasyAiTicState {
 }
 
 /// @nodoc
+abstract class _$$_LoadingCopyWith<$Res>
+    implements $EasyAiTicStateCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
+  @override
+  $Res call({List<List<Player?>> gameMatrix});
+}
+
+/// @nodoc
+class __$$_LoadingCopyWithImpl<$Res> extends _$EasyAiTicStateCopyWithImpl<$Res>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, (v) => _then(v as _$_Loading));
+
+  @override
+  _$_Loading get _value => super._value as _$_Loading;
+
+  @override
+  $Res call({
+    Object? gameMatrix = freezed,
+  }) {
+    return _then(_$_Loading(
+      gameMatrix == freezed
+          ? _value._gameMatrix
+          : gameMatrix // ignore: cast_nullable_to_non_nullable
+              as List<List<Player?>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Loading implements _Loading {
+  const _$_Loading(final List<List<Player?>> gameMatrix)
+      : _gameMatrix = gameMatrix;
+
+  final List<List<Player?>> _gameMatrix;
+  @override
+  List<List<Player?>> get gameMatrix {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_gameMatrix);
+  }
+
+  @override
+  String toString() {
+    return 'EasyAiTicState.loading(gameMatrix: $gameMatrix)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Loading &&
+            const DeepCollectionEquality()
+                .equals(other._gameMatrix, _gameMatrix));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_gameMatrix));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<List<Player?>> gameMatrix) progress,
+    required TResult Function(List<List<Player?>> gameMatrix) loading,
+    required TResult Function(List<List<Player?>> gameMatrix, Player? winner)
+        gameOver,
+    required TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)
+        error,
+  }) {
+    return loading(gameMatrix);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<List<Player?>> gameMatrix)? progress,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
+  }) {
+    return loading?.call(gameMatrix);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<List<Player?>> gameMatrix)? progress,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(gameMatrix);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Progress value) progress,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_Error value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements EasyAiTicState {
+  const factory _Loading(final List<List<Player?>> gameMatrix) = _$_Loading;
+
+  @override
+  List<List<Player?>> get gameMatrix => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$_GameOverCopyWith<$Res>
     implements $EasyAiTicStateCopyWith<$Res> {
   factory _$$_GameOverCopyWith(
           _$_GameOver value, $Res Function(_$_GameOver) then) =
       __$$_GameOverCopyWithImpl<$Res>;
   @override
-  $Res call({List<List<Player?>> gameMatrix, Player winner});
+  $Res call({List<List<Player?>> gameMatrix, Player? winner});
 }
 
 /// @nodoc
@@ -269,7 +466,7 @@ class __$$_GameOverCopyWithImpl<$Res> extends _$EasyAiTicStateCopyWithImpl<$Res>
       winner == freezed
           ? _value.winner
           : winner // ignore: cast_nullable_to_non_nullable
-              as Player,
+              as Player?,
     ));
   }
 }
@@ -288,7 +485,7 @@ class _$_GameOver implements _GameOver {
   }
 
   @override
-  final Player winner;
+  final Player? winner;
 
   @override
   String toString() {
@@ -320,8 +517,12 @@ class _$_GameOver implements _GameOver {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<List<Player?>> gameMatrix) progress,
-    required TResult Function(List<List<Player?>> gameMatrix, Player winner)
+    required TResult Function(List<List<Player?>> gameMatrix) loading,
+    required TResult Function(List<List<Player?>> gameMatrix, Player? winner)
         gameOver,
+    required TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)
+        error,
   }) {
     return gameOver(gameMatrix, winner);
   }
@@ -330,7 +531,11 @@ class _$_GameOver implements _GameOver {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(List<List<Player?>> gameMatrix)? progress,
-    TResult Function(List<List<Player?>> gameMatrix, Player winner)? gameOver,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
   }) {
     return gameOver?.call(gameMatrix, winner);
   }
@@ -339,7 +544,11 @@ class _$_GameOver implements _GameOver {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<List<Player?>> gameMatrix)? progress,
-    TResult Function(List<List<Player?>> gameMatrix, Player winner)? gameOver,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
     required TResult orElse(),
   }) {
     if (gameOver != null) {
@@ -352,7 +561,9 @@ class _$_GameOver implements _GameOver {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Progress value) progress,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_Error value) error,
   }) {
     return gameOver(this);
   }
@@ -361,7 +572,9 @@ class _$_GameOver implements _GameOver {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
   }) {
     return gameOver?.call(this);
   }
@@ -370,7 +583,9 @@ class _$_GameOver implements _GameOver {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
     TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (gameOver != null) {
@@ -382,13 +597,198 @@ class _$_GameOver implements _GameOver {
 
 abstract class _GameOver implements EasyAiTicState {
   const factory _GameOver(
-      final List<List<Player?>> gameMatrix, final Player winner) = _$_GameOver;
+      final List<List<Player?>> gameMatrix, final Player? winner) = _$_GameOver;
 
   @override
   List<List<Player?>> get gameMatrix => throw _privateConstructorUsedError;
-  Player get winner => throw _privateConstructorUsedError;
+  Player? get winner => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_GameOverCopyWith<_$_GameOver> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ErrorCopyWith<$Res>
+    implements $EasyAiTicStateCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
+  @override
+  $Res call({List<List<Player?>> gameMatrix, bool isCompleted, String message});
+}
+
+/// @nodoc
+class __$$_ErrorCopyWithImpl<$Res> extends _$EasyAiTicStateCopyWithImpl<$Res>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, (v) => _then(v as _$_Error));
+
+  @override
+  _$_Error get _value => super._value as _$_Error;
+
+  @override
+  $Res call({
+    Object? gameMatrix = freezed,
+    Object? isCompleted = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_$_Error(
+      gameMatrix == freezed
+          ? _value._gameMatrix
+          : gameMatrix // ignore: cast_nullable_to_non_nullable
+              as List<List<Player?>>,
+      isCompleted == freezed
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Error implements _Error {
+  const _$_Error(
+      final List<List<Player?>> gameMatrix, this.isCompleted, this.message)
+      : _gameMatrix = gameMatrix;
+
+  final List<List<Player?>> _gameMatrix;
+  @override
+  List<List<Player?>> get gameMatrix {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_gameMatrix);
+  }
+
+  @override
+  final bool isCompleted;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'EasyAiTicState.error(gameMatrix: $gameMatrix, isCompleted: $isCompleted, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Error &&
+            const DeepCollectionEquality()
+                .equals(other._gameMatrix, _gameMatrix) &&
+            const DeepCollectionEquality()
+                .equals(other.isCompleted, isCompleted) &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_gameMatrix),
+      const DeepCollectionEquality().hash(isCompleted),
+      const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<List<Player?>> gameMatrix) progress,
+    required TResult Function(List<List<Player?>> gameMatrix) loading,
+    required TResult Function(List<List<Player?>> gameMatrix, Player? winner)
+        gameOver,
+    required TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)
+        error,
+  }) {
+    return error(gameMatrix, isCompleted, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<List<Player?>> gameMatrix)? progress,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
+  }) {
+    return error?.call(gameMatrix, isCompleted, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<List<Player?>> gameMatrix)? progress,
+    TResult Function(List<List<Player?>> gameMatrix)? loading,
+    TResult Function(List<List<Player?>> gameMatrix, Player? winner)? gameOver,
+    TResult Function(
+            List<List<Player?>> gameMatrix, bool isCompleted, String message)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(gameMatrix, isCompleted, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Progress value) progress,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_GameOver value) gameOver,
+    required TResult Function(_Error value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Progress value)? progress,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_GameOver value)? gameOver,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Error implements EasyAiTicState {
+  const factory _Error(final List<List<Player?>> gameMatrix,
+      final bool isCompleted, final String message) = _$_Error;
+
+  @override
+  List<List<Player?>> get gameMatrix => throw _privateConstructorUsedError;
+  bool get isCompleted => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
       throw _privateConstructorUsedError;
 }

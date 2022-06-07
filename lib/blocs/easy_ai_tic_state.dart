@@ -5,6 +5,13 @@ class EasyAiTicState with _$EasyAiTicState {
   const factory EasyAiTicState.progress(List<List<Player?>> gameMatrix) =
       _Progress;
 
-  const factory EasyAiTicState.gameOver(List<List<Player?>> gameMatrix, Player winner) =
-      _GameOver;
+  const factory EasyAiTicState.loading(List<List<Player?>> gameMatrix) =
+      _Loading;
+
+  const factory EasyAiTicState.gameOver(
+      List<List<Player?>> gameMatrix, Player? winner) = _GameOver;
+
+  const factory EasyAiTicState.error(
+          List<List<Player?>> gameMatrix, bool isCompleted, String message) =
+      _Error;
 }

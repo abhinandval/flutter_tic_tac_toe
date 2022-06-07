@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:tic_tac_toe/models/exceptions.dart';
 
 import 'matrix_index.dart';
 
@@ -21,7 +22,12 @@ class TicTacToe {
     if (_matrix[index.row][index.col] == null) {
       _matrix[index.row][index.col] = player;
     } else {
-      throw Exception('Cell is already filled');
+      throw InvalidMoveException(
+        matrix,
+        player,
+        index,
+        message: 'Cell is already filled',
+      );
     }
   }
 

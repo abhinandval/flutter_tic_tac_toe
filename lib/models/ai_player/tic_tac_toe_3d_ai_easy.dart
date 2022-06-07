@@ -1,23 +1,25 @@
+import 'package:tic_tac_toe/models/exceptions.dart';
+
 import '../matrix_index.dart';
 import '../tic_tac_toe.dart';
 
 /// 3x3 Tick-Tac-Toe game model with a easy AI player. Provides methods to make
 /// a move.
 class TicTacToe3DAIEasy extends TicTacToe {
-  TicTacToe3DAIEasy(this._currentPlayer, this.onWinner) : super(3);
+  TicTacToe3DAIEasy(this._currentPlayer) : super(3);
 
   // Manual player
   final Player _currentPlayer;
   // The player who won the game
   Player? _winner;
   // callback to get winner
-  final void Function(Player) onWinner;
+  void Function(Player)? onWinner;
 
   /// Fill the board with the given value and set the AI player's next move.
   /// Also check if the game is over and announce the winner.
   void makeMove(MatrixIndex index) {
     if (_winner != null) {
-      throw Exception('Game is over');
+      throw GameOverException(matrix, _winner);
     }
 
     fill(index, _currentPlayer);
@@ -25,10 +27,11 @@ class TicTacToe3DAIEasy extends TicTacToe {
 
     if (nextIndex != null) {
       fill(nextIndex, _currentPlayer.otherPlayer);
-      _winner = _getWinner();
-      if (_winner != null) {
-        onWinner(_winner!);
-      }
+    }
+    
+    _winner = getWinner();
+    if (_winner != null && onWinner != null) {
+      onWinner!(_winner!);
     }
   }
 
@@ -46,7 +49,7 @@ class TicTacToe3DAIEasy extends TicTacToe {
 
   /// Checks the current board for a winner and returns the winner. Otherwise
   /// returns null.
-  Player? _getWinner() {
+  Player? getWinner() {
     // Check columns
     for (var i = 0; i < dimension; i++) {
       if (matrix[0][i] != null &&
