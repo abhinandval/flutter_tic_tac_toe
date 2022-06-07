@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'easy_ai_tic_cubit.dart';
+part of 'tic_tac_toe_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$EasyAiTicState {
+mixin _$TicTacToeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -82,20 +82,20 @@ mixin _$EasyAiTicState {
 }
 
 /// @nodoc
-abstract class $EasyAiTicStateCopyWith<$Res> {
-  factory $EasyAiTicStateCopyWith(
-          EasyAiTicState value, $Res Function(EasyAiTicState) then) =
-      _$EasyAiTicStateCopyWithImpl<$Res>;
+abstract class $TicTacToeStateCopyWith<$Res> {
+  factory $TicTacToeStateCopyWith(
+          TicTacToeState value, $Res Function(TicTacToeState) then) =
+      _$TicTacToeStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$EasyAiTicStateCopyWithImpl<$Res>
-    implements $EasyAiTicStateCopyWith<$Res> {
-  _$EasyAiTicStateCopyWithImpl(this._value, this._then);
+class _$TicTacToeStateCopyWithImpl<$Res>
+    implements $TicTacToeStateCopyWith<$Res> {
+  _$TicTacToeStateCopyWithImpl(this._value, this._then);
 
-  final EasyAiTicState _value;
+  final TicTacToeState _value;
   // ignore: unused_field
-  final $Res Function(EasyAiTicState) _then;
+  final $Res Function(TicTacToeState) _then;
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$EasyAiTicStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res> extends _$TicTacToeStateCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, (v) => _then(v as _$_Initial));
@@ -122,7 +122,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'EasyAiTicState.initial()';
+    return 'TicTacToeState.initial()';
   }
 
   @override
@@ -222,7 +222,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements EasyAiTicState {
+abstract class _Initial implements TicTacToeState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -235,7 +235,7 @@ abstract class _$$_ProgressCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ProgressCopyWithImpl<$Res> extends _$EasyAiTicStateCopyWithImpl<$Res>
+class __$$_ProgressCopyWithImpl<$Res> extends _$TicTacToeStateCopyWithImpl<$Res>
     implements _$$_ProgressCopyWith<$Res> {
   __$$_ProgressCopyWithImpl(
       _$_Progress _value, $Res Function(_$_Progress) _then)
@@ -272,7 +272,7 @@ class _$_Progress implements _Progress {
 
   @override
   String toString() {
-    return 'EasyAiTicState.progress(gameMatrix: $gameMatrix)';
+    return 'TicTacToeState.progress(gameMatrix: $gameMatrix)';
   }
 
   @override
@@ -381,7 +381,7 @@ class _$_Progress implements _Progress {
   }
 }
 
-abstract class _Progress implements EasyAiTicState {
+abstract class _Progress implements TicTacToeState {
   const factory _Progress(final List<List<Player?>> gameMatrix) = _$_Progress;
 
   List<List<Player?>> get gameMatrix => throw _privateConstructorUsedError;
@@ -399,7 +399,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res> extends _$EasyAiTicStateCopyWithImpl<$Res>
+class __$$_LoadingCopyWithImpl<$Res> extends _$TicTacToeStateCopyWithImpl<$Res>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, (v) => _then(v as _$_Loading));
@@ -435,7 +435,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'EasyAiTicState.loading(gameMatrix: $gameMatrix)';
+    return 'TicTacToeState.loading(gameMatrix: $gameMatrix)';
   }
 
   @override
@@ -544,7 +544,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements EasyAiTicState {
+abstract class _Loading implements TicTacToeState {
   const factory _Loading(final List<List<Player?>> gameMatrix) = _$_Loading;
 
   List<List<Player?>> get gameMatrix => throw _privateConstructorUsedError;
@@ -562,7 +562,7 @@ abstract class _$$_GameOverCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_GameOverCopyWithImpl<$Res> extends _$EasyAiTicStateCopyWithImpl<$Res>
+class __$$_GameOverCopyWithImpl<$Res> extends _$TicTacToeStateCopyWithImpl<$Res>
     implements _$$_GameOverCopyWith<$Res> {
   __$$_GameOverCopyWithImpl(
       _$_GameOver _value, $Res Function(_$_GameOver) _then)
@@ -607,7 +607,7 @@ class _$_GameOver implements _GameOver {
 
   @override
   String toString() {
-    return 'EasyAiTicState.gameOver(gameMatrix: $gameMatrix, winner: $winner)';
+    return 'TicTacToeState.gameOver(gameMatrix: $gameMatrix, winner: $winner)';
   }
 
   @override
@@ -719,7 +719,7 @@ class _$_GameOver implements _GameOver {
   }
 }
 
-abstract class _GameOver implements EasyAiTicState {
+abstract class _GameOver implements TicTacToeState {
   const factory _GameOver(
       final List<List<Player?>> gameMatrix, final Player? winner) = _$_GameOver;
 
@@ -738,7 +738,7 @@ abstract class _$$_ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res> extends _$EasyAiTicStateCopyWithImpl<$Res>
+class __$$_ErrorCopyWithImpl<$Res> extends _$TicTacToeStateCopyWithImpl<$Res>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, (v) => _then(v as _$_Error));
@@ -790,7 +790,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'EasyAiTicState.error(gameMatrix: $gameMatrix, isCompleted: $isCompleted, message: $message)';
+    return 'TicTacToeState.error(gameMatrix: $gameMatrix, isCompleted: $isCompleted, message: $message)';
   }
 
   @override
@@ -905,7 +905,7 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements EasyAiTicState {
+abstract class _Error implements TicTacToeState {
   const factory _Error(final List<List<Player?>> gameMatrix,
       final bool isCompleted, final String message) = _$_Error;
 

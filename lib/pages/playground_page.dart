@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../blocs/easy_ai_tic_cubit.dart';
+import '../blocs/tic_tac_toe_cubit.dart';
 import '../models/matrix_index.dart';
 import '../models/tic_tac_toe.dart';
 
@@ -11,7 +11,7 @@ class PlaygroundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => EasyAiTicCubit(),
+      create: (context) => TicTacToeCubit(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Tic-Tac-Toe'),
@@ -20,7 +20,7 @@ class PlaygroundPage extends StatelessWidget {
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0 * 4),
-            child: BlocConsumer<EasyAiTicCubit, EasyAiTicState>(
+            child: BlocConsumer<TicTacToeCubit, TicTacToeState>(
               listener: (bCtx, state) {
                 state.maybeWhen(
                   orElse: () {},
@@ -32,24 +32,37 @@ class PlaygroundPage extends StatelessWidget {
               },
               builder: (bCtx, state) {
                 return state.when(
-                  initial: () => ElevatedButton(
-                    onPressed: () {
-                      bCtx.read<EasyAiTicCubit>().init(Player.X);
-                    },
-                    child: const Text('Start Game'),
+                  initial: () => Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ElevatedButton(
+                        key: UniqueKey(),
+                        onPressed: () {
+                          bCtx.read<TicTacToeCubit>().initEasyAi();
+                        },
+                        child: const Text('Play with AI'),
+                      ),
+                      ElevatedButton(
+                        key: UniqueKey(),
+                        onPressed: () {
+                          bCtx.read<TicTacToeCubit>().initDual();
+                        },
+                        child: const Text('Play with Friend'),
+                      ),
+                    ],
                   ),
                   error: (matrix, isCompleted, error) => _buildMatrixGrid(
                     matrix,
                     (index) {
                       if (!isCompleted) {
-                        bCtx.read<EasyAiTicCubit>().makeMove(index);
+                        bCtx.read<TicTacToeCubit>().makeMove(index);
                       }
                     },
                   ),
                   progress: (matrix) => _buildMatrixGrid(
                     matrix,
                     (index) {
-                      bCtx.read<EasyAiTicCubit>().makeMove(index);
+                      bCtx.read<TicTacToeCubit>().makeMove(index);
                     },
                   ),
                   loading: (gameMatrix) =>
@@ -65,7 +78,7 @@ class PlaygroundPage extends StatelessWidget {
                       const SizedBox(height: 8 * 2),
                       ElevatedButton(
                         onPressed: () {
-                          bCtx.read<EasyAiTicCubit>().init(Player.X);
+                          bCtx.read<TicTacToeCubit>().restart();
                         },
                         child: const Text('New Game'),
                       ),
